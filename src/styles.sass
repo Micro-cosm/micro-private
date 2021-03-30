@@ -1,0 +1,30 @@
+
+
+//  This import supports unmodified use of a Material Theme Generated export -- see https://materialtheme.arcsine.dev
+// @import './_custom.scss'
+@import './custom-theme'
+
+// Replace the above import with this to use Angular Materials example themes
+// @import './assets/_custom.scss'
+// @include angular-material-theme($theme)
+// .theme-alternate
+	@include angular-material-theme($altTheme)
+
+html,
+body
+	height: 100%
+body
+	margin: 0
+	font-family: Roboto, "Helvetica Neue", sans-serif
+.cms-logo
+	height: 36px
+.cms-logo-small
+	height: 28px
+.mat-toolbar-row,
+.mat-toolbar-single-row
+	justify-content: space-between
+.tooltiptext
+	display: none
+	
+@media only screen and ( min-width: 750px ) // WEB
+@media only screen and ( max-width: 750px ) // MOBILE

@@ -1,0 +1,11 @@
+
+
+<div *ngIf="!env.production" [style]="display">
+	<div *ngIf="isMobile; then mobileHead else webHead"></div>
+	<ng-template #webHead >
+		<pre>Env: <span> {{env.target.alias}} </span> Content: <span> {{env.cms.alias}} </span> (<a href="{{env.cms.service}}"> query </a> | <a href="{{env.cms.sheet}}"> content </a> ) <a class="closer" (click)="rm()">  X  </a></pre>
+	</ng-template>
+	<ng-template #mobileHead >
+		<pre>Env: <span> {{env.target.alias}} </span> Content: <span> {{env.cms.alias}} </span> ( <a href="{{env.cms.service}}"> query </a> | <a href="{{env.cms.sheet}}"> content </a> ) <a class="closer" (click)="rm()">  X  </a></pre>
+	</ng-template>
+</div>

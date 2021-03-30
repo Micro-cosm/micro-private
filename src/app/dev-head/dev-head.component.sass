@@ -1,0 +1,25 @@
+pre
+	font-family:		monospace
+	text-align:			center
+	background-color:	gainsboro
+	margin:				0
+	span
+		border: double
+		color: red
+	.closer
+		background-color: #fff
+		color: red
+		cursor: pointer
+		border-color: red
+		border-width: 2px
+		border-style: groove
+@media only screen and ( min-width: 750px ) // WEB
+	pre
+		font-size: 12px
+		.closer
+			margin-left: 10%
+@media only screen and ( max-width: 750px ) // MOBILE
+	pre
+		font-size: 7px
+		.closer
+			margin-left: 3%

@@ -1,0 +1,69 @@
+
+
+<mat-toolbar color="primary">
+	<img  fxShow="true" fxHide.lt-md="true" class="cms-logo" [src]=logoSrc alt="">
+	<div  fxShow="true" fxHide.lt-md="true" >
+		<a mat-button href="{{env.realm.base}}content/about"		> About			</a>
+		<a mat-button href="{{env.form.service}}public/apContact"	> Contact		</a>
+		<a mat-button [matMenuTriggerFor]="refer"					> Refer a...	</a>
+		<a mat-button [matMenuTriggerFor]="account"					> Account ... 	</a>
+		<mat-menu #refer="matMenu"
+				  yPosition="below"
+				  routerLinkActive="cms-bg-off cms-fg-white"
+		>
+			<a mat-menu-item href="{{env.form.service}}collaborate/"> Fellow Access Provider	</a>
+			<a mat-menu-item href="{{env.form.service}}contact/"	> Trusted Business Partner	</a>
+		</mat-menu>
+		<mat-menu #account="matMenu"
+				  yPosition="below"
+				  routerLinkActive="cms-bg-off cms-fg-white"
+		>
+			<a mat-menu-item href="{{env.auth.service}}login"	> Logout User		</a>
+			<a mat-menu-item href="{{env.form.service}}edit"	> Edit User Details	</a>
+		</mat-menu>
+	</div>
+	<div fxShow="true" fxHide.gt-sm="true" style="display: flex; align-items: center">
+		<button mat-icon-button><mat-icon (click)="sidenav.toggle()"> menu </mat-icon></button>
+		<img class="cms-logo" [src]=logoSrc alt="">
+	</div>
+	<div style="display: flex; align-items: center">
+		<a	class="mat-button mat-button-base mat-primary" mat-button routerLink="/login"
+			[ngStyle]="{'background-color': titleBgColor}"
+		>
+			<strong> {{env.this.title}} </strong>
+		</a>
+	</div>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill class="example-container">
+	<mat-sidenav #sidenav fxLayout="column">
+		<div fxLayout="column">
+			<a (click)="sidenav.toggle()" href="#" mat-button			> Close			</a>
+			<a mat-button href="{{env.public.service}}content/news"		> News			</a>
+			<a mat-button href="{{env.public.service}}content/about"	> About			</a>
+			<a mat-button href="{{env.public.service}}content/donate"	> Donate		</a>
+			<a mat-button href="{{env.form.service}}public/contact"		> Contact		</a><hr />
+			<a mat-button [matMenuTriggerFor]="refer"					> Refer a...	</a>
+			<a mat-button [matMenuTriggerFor]="account"					> Account...	</a>
+			<mat-menu #refer="matMenu"
+					  yPosition="below"
+					  routerLinkActive="cms-bg-off cms-fg-white"
+			>
+				<a mat-menu-item href="{{env.form.service}}collaborate"	> Collaborate	</a>
+				<a mat-menu-item href="{{env.form.service}}contact"		> Contact		</a>
+			</mat-menu>
+			<mat-menu #account="matMenu"
+					  yPosition="below"
+					  routerLinkActive="cms-bg-off cms-fg-white"
+			>
+				<a mat-menu-item href="{{env.auth.service}}login"		> Logout		</a>
+				<a mat-menu-item href="{{env.auth.service}}edit"		> Edit			</a>
+			</mat-menu>
+		</div>
+	</mat-sidenav>
+	<mat-sidenav-content fxFlexFill>
+		
+		<router-outlet></router-outlet>
+	
+	</mat-sidenav-content>
+</mat-sidenav-container>
