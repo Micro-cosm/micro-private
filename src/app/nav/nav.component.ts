@@ -5,7 +5,7 @@ import { AngularFireAuth			} from '@angular/fire/auth';
 import { Component					} from '@angular/core';
 import { Input						} from '@angular/core';
 import { OnInit						} from '@angular/core';
-import { NavigationEnd				} from '@angular/router';
+// import { NavigationEnd			} from '@angular/router';
 import { Router						} from '@angular/router';
 import { Title						} from '@angular/platform-browser';
 import { GoogleTagManagerService	} from 'angular-google-tag-manager';
@@ -38,15 +38,13 @@ export class NavComponent implements OnInit {
 	) {
 		this.env		= environment;
 		this.logoSrc	= this.env.assets.bucket + '/images/greysacale-transparent-wj.png';
-		
 		this.titleService.setTitle( this.title );
-		
-		this.router.events.forEach( item => {
-			if ( item instanceof NavigationEnd ) {
-				const gtmTag = {event: 'page', pageName: item.url};
-				this.gtmService.pushTag(gtmTag).then( r => console.log('push tag callback', r ))
-			}
-		}).then( r => console.log('push tag callback', r ))
+		// this.router.events.forEach( item => {
+		// 	if ( item instanceof NavigationEnd ) {
+		// 		const gtmTag = {event: 'page', pageName: item.url};
+		// 		this.gtmService.pushTag(gtmTag).then( r => console.log('push tag callback', r ))
+		// 	}
+		// }).then( r => console.log('push tag callback', r ))
 	}
 	
 	ngOnInit(): void	{
